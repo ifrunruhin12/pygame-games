@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 
@@ -46,6 +47,15 @@ pygame.display.set_caption("Pac-Man")
 
 clock = pygame.time.Clock()
 
+# ================= DIRECTIONS =================
+
+directions = [
+    (0, -1),  # Up
+    (0, 1),   # Down
+    (-1, 0),  # Left
+    (1, 0)    # Right
+]
+
 # ================= PLAYER =================
 
 player_x = 0
@@ -66,6 +76,15 @@ player_speed = 5
 
 move_x = 0
 move_y = 0
+
+# ================= GHOST =================
+
+ghost_x = 9 * TILE_SIZE
+ghost_y = 5 * TILE_SIZE
+
+ghost_speed = 2
+
+ghost_direction = (1, 0)  # Moving right initially
 
 # ================= GAME LOOP =================
 
@@ -124,6 +143,31 @@ while running:
 
         print(f"Score: {score}")
 
+    # ---------- GHOST MOVEMENT ----------
+
+    ghost_next_x = ghost_x + ghost_direction[0] * ghost_speed
+    ghost_next_y = ghost_y + ghost_direction[1] * ghost_speed
+
+    ghost_grid_x = (ghost_next_x + TILE_SIZE // 2) // TILE_SIZE
+    ghost_grid_y = (ghost_next_y + TILE_SIZE // 2) // TILE_SIZE
+
+    # WALL CHECK
+
+    if maze[ghost_grid_y][ghost_grid_x] != "#":
+
+        ghost_x = ghost_next_x
+        ghost_y = ghost_next_y
+
+    else:
+
+        ghost_direction = random.choice(directions)
+
+
+    player_rect = pygame.Rect(player_x, player_y, TILE_SIZE, TILE_SIZE)
+    ghost_rect = pygame.Rect(ghost_x, ghost_y, TILE_SIZE, TILE_SIZE)
+    if player_rect.colliderect(ghost_rect):
+        print("Game Over!")
+        running = False
 
     # ---------- DRAW ----------
 
@@ -166,6 +210,17 @@ while running:
         (
             player_x + TILE_SIZE // 2,
             player_y + TILE_SIZE // 2
+        ),
+        TILE_SIZE // 2 - 2
+    )
+
+    # DRAW GHOST
+    pygame.draw.circle(
+        screen,
+        (255, 0, 0),
+        (
+            ghost_x + TILE_SIZE // 2,
+            ghost_y + TILE_SIZE // 2
         ),
         TILE_SIZE // 2 - 2
     )
