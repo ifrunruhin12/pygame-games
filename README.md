@@ -10,7 +10,7 @@ A collection of polished classic arcade games built in Python using Pygame, desi
 - [ ] Flappy Bird
 - [ ] Space Invaders
 - [ ] Tetris
-- [ ] Pong
+- [x] **Pong**: Classic table tennis arcade game with 1-Player (vs AI) and 2-Player local PvP, angle deflection, speed ramping rallies, particle effects, and scoreboard.
 
 ---
 
@@ -27,6 +27,14 @@ source venv/bin/activate
 ```
 
 ### 2. Launching Games
+
+- **Pong**:
+  ```bash
+  python3 pong/main.py
+  ```
+  - **Modes**: Press `1` for 1-Player (vs Computer) or `2` for 2-Player (Local PvP).
+  - **Controls**: P1 uses `W`/`S`, P2 uses `UP`/`DOWN`.
+  - **Serve / Start**: `SPACE` | **Pause**: `P` | **Quit**: `ESC` | **Restart**: `ENTER`
 
 - **Pac-Man**:
   ```bash
