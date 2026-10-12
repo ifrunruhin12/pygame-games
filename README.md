@@ -1,33 +1,69 @@
-# Pygame game practice 
+# Pygame Arcade Games Collection
 
-This is game basic arcade games and game core I am making to understand more about game development and game design. I am using python and pygame to make this game. I will update this project with more games and more features in the future.
-Also I will work on this game core and make the games feel more fun and more enjoyable to play. I will also add more features to the game core to make it more versatile and more useful for making different types of games.
-All of these games here can be improved by a large margin. So, if you are also interested in game development, you can give a PR and help me make this project better.
+A collection of polished classic arcade games built in Python using Pygame, designed to explore game architecture, mechanics, physics, and game feel.
 
-## Games I made so far (skeletons/prototypes/core):
-- [x] Snake game
-- [x] Bricks breaker
-- [x] Pacman
-- [] Flappy bird
-- [] Space invaders
-- [] Tetris
-- [] Pong
+## Games Included:
+- [x] **Pac-Man**: Authentic arcade maze with animated chomp, 4-ghost AI (Blinky, Pinky, Inky, Clyde), Energizer power pellets & frightened mode, side warp tunnels, lives, and high scores.
+- [x] **Rapid Roll**: Nokia arcade classic recreated with vertical scrolling, ball physics, ceiling spike hazards, 6 platform varieties (Normal, Spike, Spring, Moving, Crumble, Ice), heart & gem collectibles, and high scores.
+- [x] **Bricks Breaker**: Breakout arcade game with colorful beveled brick rows, paddle angle deflection, particle burst effects, lives, and level progression.
+- [x] **Snake Game**: Retro snake with expressive head eyes pointing towards movement, glowing pulsing apples, food eating sparkle particles, score HUD, and game over overlays.
+- [ ] Flappy Bird
+- [ ] Space Invaders
+- [ ] Tetris
+- [ ] Pong
 
-## Game core features:
-- Game loop
-- Event handling
-- Sprite management
-- Collision detection
-- Score management
-- Sound management
-- Game state management
-- Level management
+---
 
-## How to run the game:
-1. Clone the repository
-2. Install the required libraries (pygame)
-3. Run the game file (e.g. snake.py)
+## How to Run the Games
+
+### 1. Prerequisites
+Ensure Python (3.9+) and `pygame` are installed:
+```bash
+pip install pygame
+```
+Or activate the local virtual environment:
+```bash
+source venv/bin/activate
+```
+
+### 2. Launching Games
+
+- **Pac-Man**:
+  ```bash
+  python3 pacman/main.py
+  ```
+  - **Controls**: Arrow Keys or `W`/`A`/`S`/`D` to steer Pac-Man.
+  - **Pause**: `P` | **Quit**: `ESC` | **Restart**: `ENTER` / `SPACE`
+
+- **Rapid Roll**:
+  ```bash
+  python3 rapid-roll/main.py
+  ```
+  - **Controls**: `A`/`D` or Left/Right Arrow Keys to roll the ball.
+  - **Pause**: `P` | **Quit**: `ESC` | **Start / Restart**: `SPACE` / `ENTER`
+
+- **Bricks Breaker**:
+  ```bash
+  python3 brick-break/main.py
+  ```
+  - **Controls**: `A`/`D` or Left/Right Arrow Keys to move the paddle.
+  - **Launch Ball**: `SPACE` or `UP` | **Pause**: `P` | **Restart**: `ENTER`
+
+- **Snake Game**:
+  ```bash
+  python3 snake-game/main.py
+  ```
+  - **Controls**: Arrow Keys or `W`/`A`/`S`/`D` to turn.
+  - **Pause**: `P` | **Quit**: `ESC` | **Restart**: `ENTER`
+
+---
+
+## Game Architecture & Features
+- **Common UI & Font Layer** (`common_ui.py`): Robust text rendering and HUD panels with Python 3.14+ compatibility (supporting `pygame._freetype` and `pygame.font`), plus persistent high-score management.
+- **Game Loops & State Management**: Complete title screens, pause overlays (`P`), animated transitions, and game over / restart flows.
+- **Particle Systems**: Dynamic debris and sparkle effects on impacts and collections.
+
+---
 
 ## Contributing
-If you want to contribute to this project, you can fork the repository and make a pull request. You can also open an issue if you have any suggestions or if you find any bugs. I will try to respond to your pull request or issue as soon as possible. Thank you for your interest in this project and I hope you will enjoy playing the games I made.
-
+Pull requests, suggestions, and new game additions are welcome! Fork the repository and open a pull request.
